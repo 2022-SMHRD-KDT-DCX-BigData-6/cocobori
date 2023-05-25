@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" href="./css/login.css" />
+</head>
+<body>
+<div id="container" class="container">
+    <!-- FORM SECTION -->
+    <div class="row">
+      <!-- SIGN UP -->
+      <div class="col align-items-center flex-col sign-up">
+        <form class="form-wrapper align-items-center">
+          <div class="form sign-up">
+            <div class="input-group">
+              <i class='bx bx-mail-send'></i>
+              <input type="email" name="user_eamil" placeholder="Email">
+            </div>
+            <div class="input-group">
+              <i class='bx bxs-lock-alt'></i>
+              <input type="password" name="user_pw" placeholder="Password">
+            </div>
+            <div class="input-group">
+              <i class='bx bxs-lock-alt'></i>
+              <input type="password" name="user_pw" placeholder="Confirm password">
+            </div>
+            <div class="input-group">
+              <i class='bx bxs-user'></i>
+              <input type="text" name="user_name" placeholder="name">
+            </div>
+            <div class="input-group">
+              <i class='bx bxs-user'></i>
+              <input type="text" name="user_nick" placeholder="nick name">
+            </div>
+            <div class="input-group">
+              <i class='bx bxs-phone'></i>
+              <input type="text" name="user_phone" placeholder="phone">
+            </div>
+            <div class="input-group">
+              <i class='bx bxs-phone'></i>
+              <input type="date" name="user_birthdate" placeholder="birthdate">
+            </div>
+            <div class="input-box">
+              <i class='bx bxc-pone'></i>
+              남<input type="radio" name="user_gender" value="male">
+              여<input type="radio" name="user_gender" value="female">
+              선택안함<input type="radio" name="user_gender" value="nosel">
+            </div>
+            <div class="input-box">
+              <i class='bx bxc-pone'></i>
+              강아지<input type="checkbox" name="user_pet" value="강아지">
+              고양이<input type="checkbox" name="user_pet" value="고양이">
+              기타<input type="checkbox" name="user_pet" value="기타">
+            </div>
+            
+            <button>
+              Sign up
+            </button>
+            <p>
+              <span>
+                Already have an account?
+              </span>
+              <b onclick="toggle()" class="pointer">
+                Sign in here
+              </b>
+            </p>
+          </form>
+        </div>
+      
+      </div>
+      <!-- END SIGN UP -->
+      <!-- SIGN IN -->
+      <div class="col align-items-center flex-col sign-in">
+        <div class="form-wrapper align-items-center">
+          <div class="form sign-in">
+            <div class="input-group">
+              <i class='bx bxs-user'></i>
+              <input type="text" placeholder="Username">
+            </div>
+            <div class="input-group">
+              <i class='bx bxs-lock-alt'></i>
+              <input type="password" placeholder="Password">
+            </div>
+            <button>
+              Sign in
+            </button>
+            <p>
+              <b>
+                Forgot password?
+              </b>
+            </p>
+            <p>
+              <span>
+                Don't have an account?
+              </span>
+              <b onclick="toggle()" class="pointer">
+                Sign up here
+              </b>
+            </p>
+          </div>
+        </div>
+        <div class="form-wrapper">
+    
+        </div>
+      </div>
+      <!-- END SIGN IN -->
+    </div>
+    <!-- END FORM SECTION -->
+    <!-- CONTENT SECTION -->
+    <div class="row content-row">
+      <!-- SIGN IN CONTENT -->
+      <div class="col align-items-center flex-col">
+        <div class="text sign-in">
+          <h2>
+            Welcome
+          </h2>
+  
+        </div>
+        <div class="img sign-in">
+    
+        </div>
+      </div>
+      <!-- END SIGN IN CONTENT -->
+      <!-- SIGN UP CONTENT -->
+      <div class="col align-items-center flex-col">
+        <div class="img sign-up">
+        
+        </div>
+        <div class="text sign-up">
+          <h2>
+            Join with us
+          </h2>
+  
+        </div>
+      </div>
+      <!-- END SIGN UP CONTENT -->
+    </div>
+    <!-- END CONTENT SECTION -->
+  </div>
+  
+  <script type="text/javascript" src="./js/login.js"></script>
+</body>
+</html>
