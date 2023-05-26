@@ -1,6 +1,3 @@
-<%@page import="com.smhrd.model.CocoBoardDTO"%>
-<%@page import="java.util.List"%>
-<%@page import="com.smhrd.model.CocoBoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -32,9 +29,6 @@ http://www.tooplate.com/view/2094-mason
 		<![endif]-->
 </head>
 <body>
-	<%
-	List<CocoBoardDTO> board_list = new CocoBoardDAO().showBoard();
-	%>
 	<div class="container-fluid">
 		<div class="tm-body">
 			<div class="tm-sidebar sticky">
@@ -47,65 +41,16 @@ http://www.tooplate.com/view/2094-mason
 				<nav class="tm-main-nav">
 					<ul class="tm-main-nav-ul">
 						<li class="tm-nav-item"><a href="pet_info.jsp" class="tm-nav-item-link tm-button">반려동물 정보</a></li>
-						<li class="tm-nav-item"><a href="board.jsp" class="tm-nav-item-link tm-button active">게시판</a></li>
-						<li class="tm-nav-item"><a href="community.jsp" class="tm-nav-item-link tm-button">커뮤니티</a></li>
+						<li class="tm-nav-item"><a href="board.jsp" class="tm-nav-item-link tm-button">게시판</a></li>
+						<li class="tm-nav-item"><a href="community.jsp" class="tm-nav-item-link tm-button active">커뮤니티</a></li>
 						<li class="tm-nav-item"><a href="info_me.jsp" class="tm-nav-item-link tm-button">내 주변 정보</a></li>
 						<li class="tm-nav-item"><a href="#" class="tm-nav-item-link tm-button">로그인</a></li>
 					</ul>
 				</nav>
 			</div>
-
-			<div class="tm-main-content">
-				<div class="container text-center">
-					<div class="row">
-						<div class="col-md-9">
-							<table class="table">
-								<tr>
-									<td>번호</td>
-									<td>제목</td>
-									<td>작성자</td>
-									<td>시간</td>
-								</tr>
-								<% for (int i = 0; i < board_list.size(); i++) {%>
-								<tr>
-									<td><%= i+1%></td>
-									<!-- Q18. 게시글 목록 세부페이지 기능(제목을 클릭하면 세부페이지 BoardDetail.jsp로 이동)-->
-									<td><a href="BoardDetail.jsp?num=<%= board_list.get(i).getB_seq()%>"><%= board_list.get(i).getB_title()%></a></td>
-									<td><%= board_list.get(i).getUser_email()%></td>
-									<td><%= board_list.get(i).getUploaded_at()%></td>
-								</tr>
-								<% }%>
-								<tr>
-									<td>
-										<a href="#"><button id="writer">작성</button></a>
-									</td>
-									<td align="right" colspan="3">
-										<a href="#">
-											<select class="form-select" aria-label="Default select example">
-												<option value="title">제목</option>
-												<option value="content">내용</option>
-												<option value="writer">글쓴이</option>
-												<option value="comment">댓글</option>
-											</select>
-											<input type="text"><button id="search">검색</button>
-										</a>
-									</td>
-								</tr>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
 		</div>
-
-		<footer class="tm-footer text-right">
-			<p>
-				Copyright &copy; <span class="tm-current-year">2018</span> Your Company - Designed by 
-				<a href="https://www.facebook.com/tooplate" target="_parent">Tooplate</a>
-			</p>
-		</footer>
-	</div> <!-- container-fluid -->
-
+	</div>
+	
 	<!-- load JS files -->
 	<script src="js/jquery-1.11.3.min.js"></script>	<!-- jQuery (https://jquery.com/download/) -->
 	<script>
