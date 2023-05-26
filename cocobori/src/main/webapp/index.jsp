@@ -44,7 +44,7 @@ http://www.tooplate.com/view/2094-mason
 						<li class="tm-nav-item"><a href="board.jsp" class="tm-nav-item-link tm-button">게시판</a></li>
 						<li class="tm-nav-item"><a href="community.jsp" class="tm-nav-item-link tm-button">커뮤니티</a></li>
 						<li class="tm-nav-item"><a href="info_me.jsp" class="tm-nav-item-link tm-button">내 주변 정보</a></li>
-						<li class="tm-nav-item"><a href="#" class="tm-nav-item-link tm-button">로그인</a></li>
+						<li class="tm-nav-item"><a href="join.html" class="tm-nav-item-link tm-button">회원가입</a></li>
 					</ul>
 				</nav>
 			</div>
