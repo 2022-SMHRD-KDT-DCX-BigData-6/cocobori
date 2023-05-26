@@ -45,10 +45,10 @@ public class JoinService extends HttpServlet {
 		System.out.println("회원가입 성공");
 		HttpSession session = request.getSession();
 		session.setAttribute("user_email", user_email);
-		response.sendRedirect("index.html");
+		response.sendRedirect("index.jsp");
 	}else {
 		System.out.println("회원가입 실패");
-		response.sendRedirect("index.html");		
+		response.sendRedirect("index.jsp");		
 	}
 	
 	}
