@@ -48,8 +48,56 @@ http://www.tooplate.com/view/2094-mason
 					</ul>
 				</nav>
 			</div>
+			<!-- side menu -->
+			
+			<div class="tm-main-content">
+				<div class="row mb-4">
+					<div class="col-sm mb-4">
+						<div class="tm-bg-orange p-2 friend">
+							<i class="fa fa-3x fa-address-book-o d-block mb-4 text-center"></i>
+							<h3 class="text-center">친구</h3>
+						</div>
+					</div>
+					<div class="col-sm mb-4">
+						<div class="tm-bg-orange p-2 chat">
+							<i class="fa fa-3x fa-comments-o d-block mb-4 text-center"></i>
+							<h3 class="text-center">채팅</h3>
+						</div>
+					</div>
+				</div>
+				<!-- row -->
+				
+				<div class="friend_list" style="display: none;">
+					<h1>친구</h1>
+					<ul class="list-group">
+						<li class="list-group-item">
+							<div><img alt="" src="">사진</div>
+							<div>친구 이름</div>
+						</li>
+					</ul>
+				</div>
+
+				<div class="chatting" style="display: none;">
+					<h1>채팅</h1>
+					<ul class="list-group">
+						<li class="list-group-item">
+							<img alt="" src="">사진
+							<span>채팅방 이름</span>
+						</li>
+					</ul>
+				</div>
+			</div>
 		</div>
+		<!-- tm-main-content -->
+		
+		<footer class="tm-footer text-right">
+			<p>
+				Copyright &copy; <span class="tm-current-year">2018</span> Your Company - Designed by 
+				<a href="https://www.facebook.com/tooplate" target="_parent">Tooplate</a>
+			</p>
+		</footer>
 	</div>
+	<!-- container-fluid -->
 	
 	<!-- load JS files -->
 	<script src="js/jquery-1.11.3.min.js"></script>	<!-- jQuery (https://jquery.com/download/) -->
@@ -57,6 +105,17 @@ http://www.tooplate.com/view/2094-mason
 		$(document).ready(function(){
 		// Update the current year in copyright
 			$('.tm-current-year').text(new Date().getFullYear());
+		});
+	</script>
+	<script type="text/javascript">
+		$(".friend").click(function () {
+			$(".friend_list").toggle();
+			$(".chatting").hide();
+		});
+
+		$(".chat").click(function () {
+			$(".chatting").toggle();
+			$(".friend_list").hide();
 		});
 	</script>
 </body>

@@ -54,6 +54,7 @@ http://www.tooplate.com/view/2094-mason
 					</ul>
 				</nav>
 			</div>
+			<!-- side menu -->
 
 			<div class="tm-main-content">
 				<div class="container text-center">
@@ -97,6 +98,7 @@ http://www.tooplate.com/view/2094-mason
 				</div>
 			</div>
 		</div>
+		<!-- tm-main-content -->
 
 		<footer class="tm-footer text-right">
 			<p>
@@ -104,7 +106,8 @@ http://www.tooplate.com/view/2094-mason
 				<a href="https://www.facebook.com/tooplate" target="_parent">Tooplate</a>
 			</p>
 		</footer>
-	</div> <!-- container-fluid -->
+	</div>
+	<!-- container-fluid -->
 
 	<!-- load JS files -->
 	<script src="js/jquery-1.11.3.min.js"></script>	<!-- jQuery (https://jquery.com/download/) -->

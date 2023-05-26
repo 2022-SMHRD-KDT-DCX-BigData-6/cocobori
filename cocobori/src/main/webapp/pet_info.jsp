@@ -48,6 +48,7 @@ http://www.tooplate.com/view/2094-mason
 					</ul>
 				</nav>
 			</div>
+			<!-- side menu -->
 
 			<div class="tm-main-content">
 				<div class="row mb-5">
@@ -146,7 +147,8 @@ http://www.tooplate.com/view/2094-mason
 				<!-- row -->
 			</div>
 		</div>
-
+		<!-- tm-main-content -->
+		
 		<footer class="tm-footer text-right">
 			<p>
 				Copyright &copy; <span class="tm-current-year">2018</span> Your Company - Designed by 

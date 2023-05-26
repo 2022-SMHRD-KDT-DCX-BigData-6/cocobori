@@ -56,8 +56,7 @@ body {
 }
 
 .tm-main-nav {
-	background-color: #EEEEEE;
-	font-size: 1.4rem;
+	background-color: #EEAF45;
 }
 
 .tm-main-nav-ul {
@@ -112,8 +111,8 @@ body {
 .tm-button:hover,
 .tm-button.active {
 	background-color: #fff;
-	border: 1px solid #CC6733;
-	color: #CC6733;
+	border: 1px solid #FF69B4;
+	color: #FF69B4;
 	text-decoration: none;
 }
 
@@ -172,7 +171,7 @@ body {
 .tm-banner { padding: 0; }
 	
 .tm-banner-inner {
-	background-color: #CC6733;
+	background-color: #FBCF5E;
 	color: white;
 	height: 100%;
 	padding: 35px 35px 45px;
@@ -198,12 +197,18 @@ body {
 
 .tm-banner-title { 
 	font-size: 3.6rem;
+	color: #FFF;
 	letter-spacing: 2px; 
 	text-transform: uppercase; 
 }
 
+.tm-banner-title:hover {
+	color: #FFF;
+	text-decoration: none;
+}
+
 .tm-banner-subtitle { 
-	color: #FECB99;
+	color: #FFF;
 	font-size: 1.4rem;
 }
 
