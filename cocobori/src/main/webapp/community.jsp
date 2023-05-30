@@ -1,3 +1,7 @@
+<%@page import="java.util.List"%>
+<%@page import="com.smhrd.model.CocoMemberDTO"%>
+<%@page import="com.smhrd.model.CocoFriendDTO"%>
+<%@page import="com.smhrd.model.CocoFriendDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -29,6 +33,12 @@ http://www.tooplate.com/view/2094-mason
 		<![endif]-->
 </head>
 <body>
+	<% 
+		// CocoMemberDTO member = (CocoMemberDTO)session.getAttribute("member");
+		String user_email = "user_email 001"; // member.getUser_email();
+	
+		List<CocoFriendDTO> friendList = new CocoFriendDAO().showAllFriends(user_email);
+	%>
 	<div class="container-fluid">
 		<div class="tm-body">
 			<div class="tm-sidebar sticky">
@@ -53,13 +63,13 @@ http://www.tooplate.com/view/2094-mason
 			<div class="tm-main-content">
 				<div class="row mb-4">
 					<div class="col-sm mb-4">
-						<div class="friend p-2">
+						<div class="friendBox p-2">
 							<i class="fa fa-3x fa-address-book-o d-block mb-4 text-center"></i>
 							<h3 class="text-center">친구</h3>
 						</div>
 					</div>
 					<div class="col-sm mb-4">
-						<div class="chat p-2">
+						<div class="chatBox p-2">
 							<i class="fa fa-3x fa-comments-o d-block mb-4 text-center"></i>
 							<h3 class="text-center">채팅</h3>
 						</div>
@@ -67,22 +77,37 @@ http://www.tooplate.com/view/2094-mason
 				</div>
 				<!-- row -->
 				
-				<div class="friend_list" style="display: none;">
-					<ul class="list-group">
-						<li class="list-group-item">
-							<img alt="" src="">사진
-							<span>채팅방 이름</span>
-						</li>
-					</ul>
+				<div class="friend_list container" style="display: none;">
+					<div class="row">
+						<div class="col-md-9">
+							<table class="table">
+								<% for (int i = 0; i < friendList.size(); i++) {%>
+								<tr>
+									<td class="friend">
+										<img alt="" src="">사진
+										<%= friendList.get(i).getFriend_email()%>
+									</td>
+								</tr>
+								<% }%>
+							</table>
+						</div>
+					</div>
 				</div>
-
-				<div class="chatting" style="display: none;">
-					<ul class="list-group">
-						<li class="list-group-item">
-							<img alt="" src="">사진
-							<span>채팅방 이름</span>
-						</li>
-					</ul>
+				<div class="chatting container" style="display: none;">
+					<div class="row">
+						<div class="col-md-9">
+							<table class="table">
+								<%-- <% for (int i = 0; i < #.size(); i++) {%> --%>
+								<tr>
+									<td class="chat">
+										<img alt="" src="">사진
+										<%-- <%= #.get(i).#()%> --%>
+									</td>
+								</tr>
+								<%-- <% }%> --%>
+							</table>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -106,31 +131,31 @@ http://www.tooplate.com/view/2094-mason
 		});
 	</script>
 	<script type="text/javascript">
-		$(".friend").click(function () {
+		$(".friendBox").click(function () {
 			$(".friend_list").toggle();
-			$(".chat").css("background-color","#ABEBC6");
+			$(".chatBox").css("background-color","#ABEBC6");
 			$(".chatting").hide();
 			
 			var friend_dp = $(".friend_list").css("display");
 
 			if (friend_dp == "none") {
-				$(".friend").css("background-color","#ABEBC6");
+				$(".friendBox").css("background-color","#ABEBC6");
 			} else {
-				$(".friend").css("background-color","#58D68D");
+				$(".friendBox").css("background-color","#58D68D");
 			}
 		});
 
-		$(".chat").click(function () {
+		$(".chatBox").click(function () {
 			$(".chatting").toggle();
-			$(".friend").css("background-color","#ABEBC6");
+			$(".friendBox").css("background-color","#ABEBC6");
 			$(".friend_list").hide();
 
 			var chat_dp = $(".chatting").css("display");
 			
 			if (chat_dp == "none") {
-				$(".chat").css("background-color","#ABEBC6");
+				$(".chatBox").css("background-color","#ABEBC6");
 			} else {
-				$(".chat").css("background-color","#58D68D");
+				$(".chatBox").css("background-color","#58D68D");
 			}
 		});
 	</script>
