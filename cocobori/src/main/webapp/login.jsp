@@ -72,10 +72,10 @@ http://www.tooplate.com/view/2094-mason
 					<h2>LOGIN</h2>
 					<form action="LoginService" method="post">
 						<div class="form-floating">
-							<input type="email" name="email" class="form-control" placeholder="Email"> 
+							<input type="email" name="user_email" class="form-control" placeholder="Email"> 
 						</div>
 						<div class="form-floating">
-							<input type="password" name="pw" class="form-control" placeholder="Password">
+							<input type="password" name="user_pw" class="form-control" placeholder="Password">
 						</div>
 						<button type="submit" class="btn btn-outline-info">login</button>
 						<button type="button" class="btn btn-outline-info" onclick="location.href='join.jsp'">sign up</button>
@@ -85,5 +85,11 @@ http://www.tooplate.com/view/2094-mason
 			</div>
 		</div>
 	</div>
+	
+	
+		<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+		crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.CocoMemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -28,23 +29,42 @@ http://www.tooplate.com/view/2094-mason
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 </head>
+
+<% CocoMemberDTO member = (CocoMemberDTO)session.getAttribute("loginMember"); %>
+
 <body>
 	<div class="container-fluid">
 		<div class="tm-body">
 			<div class="tm-sidebar sticky">
 				<section id="welcome" class="tm-content-box tm-banner margin-b-15">
 					<div class="tm-banner-inner">
-						<h1><a href="index.jsp" class="tm-banner-title">코코보리</a></h1>
-						<p class="tm-banner-subtitle">반려동물 SNS</p>
+						<h1><a href="index.jsp" class="tm-banner-title">COCOBORI</a></h1>
+						<p class="tm-banner-subtitle">
+							<% if (member == null) { %>
+								<h3>SNS</h3>
+							<% } else { %>
+								<h3><%= member.getUser_nick() %></h3>
+								<%-- <h3><%= member.getUser_email() %></h3> --%>
+								
+							<% } %>		
+						</p>
 					</div>
 				</section>
 				<nav class="tm-main-nav">
 					<ul class="tm-main-nav-ul">
-						<li class="tm-nav-item"><a href="pet_info.jsp" class="tm-nav-item-link tm-button">반려동물 정보</a></li>
-						<li class="tm-nav-item"><a href="board.jsp" class="tm-nav-item-link tm-button">게시판</a></li>
+						<% if (member == null) { %>
+							<li class="tm-nav-item"><a href="login.jsp" class="tm-nav-item-link tm-button">로그인</a></li>
+						<% } else { %>
+							<% if(member.getUser_email().equals("admin@admin.com")) { %>
+								<li class="tm-nav-item"><a href="admin_member.jsp" class="tm-nav-item-link tm-button">전체회원정보</a></li>
+								<li class="tm-nav-item"><a href="#로그아웃서블릿" class="tm-nav-item-link tm-button">로그아웃</a></li>
+							<% } else { %>
+							<li class="tm-nav-item"><a href="my_page.jsp" class="tm-nav-item-link tm-button">MY PAGE</a></li>
+							<% } %>
+						<% } %>
 						<li class="tm-nav-item"><a href="community.jsp" class="tm-nav-item-link tm-button">커뮤니티</a></li>
+						<li class="tm-nav-item"><a href="pet_info.jsp" class="tm-nav-item-link tm-button">반려동물 정보</a></li>
 						<li class="tm-nav-item"><a href="info_me.jsp" class="tm-nav-item-link tm-button">내 주변 정보</a></li>
-						<li class="tm-nav-item"><a href="join.html" class="tm-nav-item-link tm-button">회원가입</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -74,10 +94,6 @@ http://www.tooplate.com/view/2094-mason
 		<!-- tm-main-content -->
 
 		<footer class="tm-footer text-right">
-			<p>
-				Copyright &copy; <span class="tm-current-year">2018</span> Your Company - Designed by 
-				<a href="https://www.facebook.com/tooplate" target="_parent">Tooplate</a>
-			</p>
 		</footer>
 	</div>
 	<!-- container-fluid -->
