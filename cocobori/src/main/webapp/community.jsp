@@ -53,13 +53,13 @@ http://www.tooplate.com/view/2094-mason
 			<div class="tm-main-content">
 				<div class="row mb-4">
 					<div class="col-sm mb-4">
-						<div class="tm-bg-orange p-2 friend">
+						<div class="friend p-2">
 							<i class="fa fa-3x fa-address-book-o d-block mb-4 text-center"></i>
 							<h3 class="text-center">친구</h3>
 						</div>
 					</div>
 					<div class="col-sm mb-4">
-						<div class="tm-bg-orange p-2 chat">
+						<div class="chat p-2">
 							<i class="fa fa-3x fa-comments-o d-block mb-4 text-center"></i>
 							<h3 class="text-center">채팅</h3>
 						</div>
@@ -68,17 +68,15 @@ http://www.tooplate.com/view/2094-mason
 				<!-- row -->
 				
 				<div class="friend_list" style="display: none;">
-					<h1>친구</h1>
 					<ul class="list-group">
 						<li class="list-group-item">
-							<div><img alt="" src="">사진</div>
-							<div>친구 이름</div>
+							<img alt="" src="">사진
+							<span>채팅방 이름</span>
 						</li>
 					</ul>
 				</div>
 
 				<div class="chatting" style="display: none;">
-					<h1>채팅</h1>
 					<ul class="list-group">
 						<li class="list-group-item">
 							<img alt="" src="">사진
@@ -110,12 +108,30 @@ http://www.tooplate.com/view/2094-mason
 	<script type="text/javascript">
 		$(".friend").click(function () {
 			$(".friend_list").toggle();
+			$(".chat").css("background-color","#ABEBC6");
 			$(".chatting").hide();
+			
+			var friend_dp = $(".friend_list").css("display");
+
+			if (friend_dp == "none") {
+				$(".friend").css("background-color","#ABEBC6");
+			} else {
+				$(".friend").css("background-color","#58D68D");
+			}
 		});
 
 		$(".chat").click(function () {
 			$(".chatting").toggle();
+			$(".friend").css("background-color","#ABEBC6");
 			$(".friend_list").hide();
+
+			var chat_dp = $(".chatting").css("display");
+			
+			if (chat_dp == "none") {
+				$(".chat").css("background-color","#ABEBC6");
+			} else {
+				$(".chat").css("background-color","#58D68D");
+			}
 		});
 	</script>
 </body>

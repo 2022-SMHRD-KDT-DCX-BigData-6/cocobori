@@ -379,3 +379,8 @@ address { line-height: 2; }
 @media screen and (max-width: 564px) {
 	.tm-banner-title { font-size: 2.8em; }
 }
+
+.friend { color: #fff; background-color: #ABEBC6; }
+.friend:hover { background-color: #58D68D; }
+.chat { color: #fff; background-color: #ABEBC6; }
+.chat:hover { background-color: #58D68D; }
