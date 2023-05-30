@@ -33,7 +33,10 @@
 					for (CocoMemberDTO i : friendSearch) {	//dto 변경
 				%>
 				<tr>
-					<td colspan="4"><a href="BoardDetail.jsp?num=<%=i.getUser_email()%>"><%=i.getUser_email()%></a></td>	<!-- 친구 신청으로 들어가게 만들기 -->
+					<td colspan="4">
+						<%=i.getUser_email()%>
+						<button type="button" onclick="location.href='InsertFriend.do?friend_email=<%=i.getUser_email()%>'">팔로우</button>
+					</td>	<!-- 친구 신청으로 들어가게 만들기 -->
 				</tr>
 				<%
 				}
