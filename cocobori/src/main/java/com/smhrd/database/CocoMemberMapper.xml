@@ -15,6 +15,13 @@
 	 		select * from TB_USER where user_email=#{user_email} and pw=#{user_pw}
 	 		
 	</select>
+	
+<!-- 회원정보수정 -->
+	<update id="updateMember"
+			parameterType="CocoMember">
+			update TB_USER 
+			set user_pw=#{user_pw}, user_nick=#{user_nick}, user_phone=#{user_phone}, user_pet=#{user_pet} where user_email=#{user_email}
+	</update>
 
 
 
