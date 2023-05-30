@@ -1,5 +1,7 @@
 package com.smhrd.model;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -31,5 +33,13 @@ public class CocoMemberDAO {
 		cnt = sqlSession.update("com.smhrd.database.CocoMemberMapper.updateMember", dto);
 		sqlSession.close();
 		return cnt ; 
+	}
+	
+	public List<CocoMemberDTO> searchFriend(String user_email) {
+		List<CocoMemberDTO> searchFriend = sqlSession.selectList("com.smhrd.database.CocoMemberMapper.searchFriend", user_email);
+		
+		sqlSession.close();
+		
+		return searchFriend;
 	}
 }
