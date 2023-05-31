@@ -81,6 +81,9 @@ http://www.tooplate.com/view/2094-mason
 					<div class="row">
 						<div class="col-md-9">
 							<table class="table">
+								<tr>
+									<td>친구</td>
+								</tr>
 								<% for (int i = 0; i < friendList.size(); i++) {%>
 								<tr>
 									<td class="friend">
@@ -97,6 +100,9 @@ http://www.tooplate.com/view/2094-mason
 					<div class="row">
 						<div class="col-md-9">
 							<table class="table">
+								<tr>
+									<td>채팅방</td>
+								</tr>
 								<%-- <% for (int i = 0; i < #.size(); i++) {%> --%>
 								<tr>
 									<td class="chat">
