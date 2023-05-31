@@ -28,11 +28,16 @@ public class CocoMemberDTO {
 
 
 	public CocoMemberDTO(String user_email, String user_pw, String user_nick, String user_phone, String user_pet ) {
-		
+		this.user_email = user_email;
+		this.user_pw = user_pw;
+		this.user_nick = user_nick;
+		this.user_phone = user_phone;
+		this.user_pet = user_pet;
 	}
 
 	public CocoMemberDTO(String user_email, String user_pw) {
-		
+		this.user_email = user_email;
+		this.user_pw = user_pw;
 	}
 	
 	public CocoMemberDTO() {

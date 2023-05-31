@@ -1,4 +1,3 @@
-<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="com.smhrd.model.CocoBoardDTO"%>
 <%@page import="java.util.List"%>
 <%@page import="com.smhrd.model.CocoBoardDAO"%>
@@ -78,7 +77,7 @@ http://www.tooplate.com/view/2094-mason
 								<% }%>
 								<tr>
 									<td>
-										<a href="BoardWrite.jsp"><button id="write">작성</button></a>
+										<a href="#"><button id="writer">작성</button></a>
 									</td>
 									<td align="right" colspan="3">
 										<a href="#">

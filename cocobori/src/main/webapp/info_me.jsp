@@ -48,7 +48,6 @@ http://www.tooplate.com/view/2094-mason
 					</ul>
 				</nav>
 			</div>
-			<!-- side menu -->
 
 			<div class="tm-main-content">
 				<div class="tm-content-box tm-content-box-home">
@@ -96,7 +95,6 @@ http://www.tooplate.com/view/2094-mason
 				</section>
 			</div>
 		</div>
-		<!-- tm-main-content -->
 
 		<footer class="tm-footer text-right">
 			<p>

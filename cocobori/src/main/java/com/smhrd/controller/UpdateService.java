@@ -12,15 +12,16 @@ import com.smhrd.model.CocoMemberDTO;
 
 
 public class UpdateService extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-	HttpSession session = request.getSession();
-	CocoMemberDTO Member = (CocoMemberDTO)session.getAttribute("loginMember");
+	request.setCharacterEncoding("UTF-8");	
 		
-	String user_email = Member.getUser_email();
+	HttpSession session = request.getSession();
+	CocoMemberDTO member = (CocoMemberDTO)session.getAttribute("Member");
+		
+	String user_email = member.getUser_email();
 	String user_pw = request.getParameter("user_pw");
 	String user_nick = request.getParameter("user_nick");
 	String user_phone = request.getParameter("user_phone");
@@ -34,8 +35,8 @@ public class UpdateService extends HttpServlet {
 	
 	if(cnt > 0) {
 		System.out.println("회원정보수정 성공!");
-		session.setAttribute("Member", dao);
-		response.sendRedirect("index.html");
+		session.setAttribute("member", dto);
+		response.sendRedirect("index.jsp");
 	}else {
 		System.out.println("회원정보수정 실패...");
 		response.sendRedirect("update.jsp");

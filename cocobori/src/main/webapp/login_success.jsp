@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.CocoMemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -29,23 +30,39 @@ http://www.tooplate.com/view/2094-mason
 		<![endif]-->
 </head>
 <body>
+
+<!-- 세션값 가져오기. 자바코드니까 스클립틀릿 여시고!~ -->
+		<% 
+			// session.getAttribute(네임값 작성) -> email,pw,tel,address 다 들어있는 상태다.
+			CocoMemberDTO loginMember = (CocoMemberDTO)session.getAttribute("loginMember");
+			if(loginMember != null){
+			System.out.print(loginMember.getUser_email());
+			}
+			%>
+
+
 	<div class="container-fluid">
 		<div class="tm-body">
 			<div class="tm-sidebar sticky">
 				<section id="welcome" class="tm-content-box tm-banner margin-b-15">
 					<div class="tm-banner-inner">
 						<h1><a href="index.jsp" class="tm-banner-title">코코보리</a></h1>
-						<p class="tm-banner-subtitle">반려동물 SNS</p>
+						<p class="tm-banner-subtitle"><%=loginMember.getUser_nick() %>님 환영합니다!</p>
 					</div>
 				</section>
 				<nav class="tm-main-nav">
 					<ul class="tm-main-nav-ul">
+					<%if(loginMember.getUser_email().equals("admin@admin.com")){ %>
+						<li class="tm-nav-item"><a href="admin_member.jsp" class="tm-nav-item-link tm-button">전체회원정보</a></li>
+					<%} %>
 						<li class="tm-nav-item"><a href="index.jsp" class="tm-nav-item-link tm-button">HOME</a></li>
-						<li class="tm-nav-item"><a href="my_page.jsp" class="tm-nav-item-link tm-button">MY PAGE</a></li>
+						<li class="tm-nav-item"><a href="update_member.jsp" class="tm-nav-item-link tm-button">MY PAGE</a></li>
 						<li class="tm-nav-item"><a href="pet_info.jsp" class="tm-nav-item-link tm-button">반려동물 정보</a></li>
 						<li class="tm-nav-item"><a href="board.jsp" class="tm-nav-item-link tm-button">게시판</a></li>
 						<li class="tm-nav-item"><a href="community.jsp" class="tm-nav-item-link tm-button">커뮤니티</a></li>
 						<li class="tm-nav-item"><a href="info_me.jsp" class="tm-nav-item-link tm-button">내 주변 정보</a></li>
+						<li class="tm-nav-item"><a href="LogoutService" class="tm-nav-item-link tm-button">로그아웃</a></li>
+						
 					</ul>
 				</nav>
 			</div>

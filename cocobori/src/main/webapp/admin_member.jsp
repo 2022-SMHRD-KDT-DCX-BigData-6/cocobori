@@ -1,3 +1,7 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+<%@page import="java.util.List"%>
+<%@page import="com.smhrd.model.CocoMemberDTO"%>
+<%@page import="com.smhrd.model.CocoMemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -21,7 +25,13 @@
 </head>
 
 <body>
-	<!-- 관리자 아이디로 로그인시 열리는 페이지 -->
+
+	<%
+	CocoMemberDAO dao = new CocoMemberDAO();
+	List<CocoMemberDTO> list = dao.selectAllMember();
+	%>
+
+	<!-- 관리자 아이디(admin@admin.com)로 로그인시 열리는 페이지 -->
 	<div class="container-fluid">
 		<div class="tm-body margin-b-50">
 			<div class="tm-sidebar">
@@ -37,7 +47,7 @@
 					<ul class="tm-main-nav-ul">
 						<li class="tm-nav-item"><a href="index.jsp"
 							class="tm-nav-item-link tm-button">HOME</a></li>
-						<li class="tm-nav-item"><a href="index.jsp"
+						<li class="tm-nav-item"><a href="LogoutService"
 							class="tm-nav-item-link tm-button">LOGOUT</a></li>
 					</ul>
 				</nav>
@@ -56,30 +66,29 @@
 					</thead>
 					<tbody class="table-group-divider">
 						<!-- 반복문으로 회원정보 가져오기 -->
+						
+						<%-- <%for(int i = 0; i<list.size(); i++){%>
 						<tr>
-							<th scope="row">1</th>
-							<td>totoro@naver.com</td>
-							<td>토토로</td>
-							<td>010-4209-8355</td>
-							<td><a href="#"><button type="button"
-										class="btn btn-outline-danger btn-sm">삭제</button></a></td>
+							<td><%=list.get(i).getUser_email() %></td>
+							<td><%=list.get(i).getUser_name() %></td>							
+							<td><%=list.get(i).getUser_nick() %></td>
+							<td><%=list.get(i).getUser_phone() %></td> 	
 						</tr>
-						<tr>
-							<th scope="row">2</th>
-							<td>banana@naver.com</td>
-							<td>바나나</td>
-							<td>010-1234-5678</td>
-							<td><a href="#"><button type="button"
-										class="btn btn-outline-danger btn-sm">삭제</button></a></td>
-						</tr>
-						<tr>
-							<th scope="row">3</th>
-							<td>cherry@google.com</td>
-							<td>체리</td>
-							<td>010-5478-2312</td>
-							<td><a href="#"><button type="button"
-										class="btn btn-outline-danger btn-sm">삭제</button></a></td>
-						</tr>
+						<%} %> --%>
+
+					<%for(CocoMemberDTO l :list){ %>
+								<tr>	
+									<td><%=l.getUser_email() %></td>
+									<td><%=l.getUser_name() %></td>
+									<td><%=l.getUser_nick() %></td>
+									<td><%=l.getUser_phone() %></td>
+									<!-- 쿼리스트링방식 : url?name=value&name=value -->
+									<td><a href="DeleteService?user_email=<%=l.getUser_email() %>">삭제</a></td>
+								</tr>
+							<%} %>
+							
+							
+						
 					</tbody>
 				</table>
 			</div>

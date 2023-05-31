@@ -18,17 +18,19 @@ public class LoginService extends HttpServlet {
 
 		String user_email = request.getParameter("user_email");
 		String user_pw = request.getParameter("user_pw");
+		System.out.println(user_email + user_pw);
 
-		CocoMemberDTO Member = new CocoMemberDTO(user_email, user_pw);
+		CocoMemberDTO member = new CocoMemberDTO(user_email, user_pw);
+		System.out.println(member);
 		CocoMemberDAO dao = new CocoMemberDAO();
-		CocoMemberDTO loginMember = dao.selectMember(Member);
+		CocoMemberDTO loginMember = dao.selectMember(member);
 
 		// 2-1. 회원이 존재할 경우, 세션영역에 저장하고 index.html로 이동
 		if (loginMember != null) {
 			System.out.println("로그인 성공!");
 			HttpSession session = request.getSession();
 			session.setAttribute("loginMember", loginMember);
-			response.sendRedirect("login.jsp");
+			response.sendRedirect("login_success.jsp");
 		} else {
 			System.out.println("로그인실패...");
 			response.sendRedirect("login.jsp");

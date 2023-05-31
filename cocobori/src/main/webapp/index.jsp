@@ -47,6 +47,7 @@ http://www.tooplate.com/view/2094-mason
 								<%-- <h3><%= member.getUser_email() %></h3> --%>
 								
 							<% } %>		
+							
 						</p>
 					</div>
 				</section>
@@ -57,9 +58,9 @@ http://www.tooplate.com/view/2094-mason
 						<% } else { %>
 							<% if(member.getUser_email().equals("admin@admin.com")) { %>
 								<li class="tm-nav-item"><a href="admin_member.jsp" class="tm-nav-item-link tm-button">전체회원정보</a></li>
-								<li class="tm-nav-item"><a href="#로그아웃서블릿" class="tm-nav-item-link tm-button">로그아웃</a></li>
+								<li class="tm-nav-item"><a href="LogoutService" class="tm-nav-item-link tm-button">로그아웃</a></li>
 							<% } else { %>
-							<li class="tm-nav-item"><a href="my_page.jsp" class="tm-nav-item-link tm-button">MY PAGE</a></li>
+							<li class="tm-nav-item"><a href="update_member.jsp" class="tm-nav-item-link tm-button">MY PAGE</a></li>
 							<% } %>
 						<% } %>
 						<li class="tm-nav-item"><a href="community.jsp" class="tm-nav-item-link tm-button">커뮤니티</a></li>
@@ -94,6 +95,14 @@ http://www.tooplate.com/view/2094-mason
 		<!-- tm-main-content -->
 
 		<footer class="tm-footer text-right">
+									<% if (member == null) { %>
+								<h3>SNS</h3>
+							<% } else { %>
+								<%= member.getUser_phone() %>
+								<%-- <h3><%= member.getUser_email() %></h3> --%>
+								
+							<% } %>	
+		
 		</footer>
 	</div>
 	<!-- container-fluid -->

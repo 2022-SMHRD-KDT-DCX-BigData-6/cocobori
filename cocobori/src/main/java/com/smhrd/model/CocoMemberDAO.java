@@ -10,36 +10,46 @@ import com.smhrd.database.SqlSessionManager;
 public class CocoMemberDAO {
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	SqlSession sqlSession = sqlSessionFactory.openSession(true);
-	
+
 	// 회원가입 기능
 	public int insertMember(CocoMemberDTO dto) {
-		int cnt =0;
+		int cnt = 0;
 		cnt = sqlSession.insert("com.smhrd.database.CocoMemberMapper.insertMember", dto);
 		sqlSession.close();
 		return cnt;
 	}
+
 	// 로그인 기능
 	public CocoMemberDTO selectMember(CocoMemberDTO dto) {
-	
-		CocoMemberDTO Member = null;
-		Member = sqlSession.selectOne("com.smhrd.database.CocoMemberMapper.selectMember", Member);
+		CocoMemberDTO member = null;
+		member = sqlSession.selectOne("com.smhrd.database.CocoMemberMapper.selectMember", dto);
 		sqlSession.close();
-		return Member;
+		return member;
 	}
-	
+
 	// 회원정보수정 기능
 	public int updateMember(CocoMemberDTO dto) {
-		int cnt = 0;
-		cnt = sqlSession.update("com.smhrd.database.CocoMemberMapper.updateMember", dto);
+		int cnt = 0;	
+		cnt = sqlSession.update("com.smhrd.database.CocoMemberMapper.updateMember", dto);		
+		sqlSession.close();		
+		return cnt;
+	}
+
+	// 전체회원조회
+	public List<CocoMemberDTO> selectAllMember() {
+		List<CocoMemberDTO> list = sqlSession.selectList("com.smhrd.database.CocoMemberMapper.selectAllMember");
 		sqlSession.close();
-		return cnt ; 
+		return list;
 	}
 	
-	public List<CocoMemberDTO> searchFriend(String user_email) {
-		List<CocoMemberDTO> searchFriend = sqlSession.selectList("com.smhrd.database.CocoMemberMapper.searchFriend", user_email);
-		
-		sqlSession.close();
-		
-		return searchFriend;
+	// 회원삭제 기능
+	public int deleteMember(String user_email) {
+		int cnt = 0;	
+		cnt = sqlSession.delete("com.smhrd.database.CocoMemberMapper.deleteMember", user_email);
+		sqlSession.close();	
+		return cnt;
 	}
+
+	
+	
 }
